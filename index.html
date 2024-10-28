@@ -43,8 +43,8 @@
             font-size: 18px;
             border: 2px solid black;
             position: absolute;
-            left: 600px; /* 初始位置是滚开的状态 */
-            transition: transform 1s ease, left 1s ease;
+            left: 100px; /* 初始位置在女王身边 */
+            transition: transform 1s ease, left 2s ease;
         }
         button {
             padding: 10px 20px;
@@ -54,6 +54,12 @@
         }
         #buttons {
             margin-top: 20px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+            display: none;
         }
     </style>
 </head>
@@ -71,22 +77,32 @@
         <button id="comeBackButton">滚回来</button>
     </div>
 
+    <div class="message" id="message">我错了，我真的知道错了，我再也不惹女王生气了！</div>
+
     <script>
         // 获取按钮和狗元素
         const rollButton = document.getElementById('rollButton');
         const comeBackButton = document.getElementById('comeBackButton');
         const dog = document.getElementById('dog');
+        const message = document.getElementById('message');
 
         // 点击 "滚" 按钮后，丁狗滚远
         rollButton.addEventListener('click', () => {
             dog.style.transform = 'rotate(1080deg)'; // 滚动3圈（360 * 3）
             dog.style.left = '600px'; // 狗滚到离女王更远的位置
+            message.style.display = 'none'; // 隐藏消息
         });
 
-        // 点击 "滚回来" 按钮后，丁狗滚回到女王身边
+        // 点击 "滚回来" 按钮后，丁狗滚回到女王身边并显示道歉文字
         comeBackButton.addEventListener('click', () => {
-            dog.style.transform = 'rotate(0deg)'; // 旋转角度复位
+            dog.style.transform = 'rotate(-1080deg)'; // 滚动3圈（反向滚回）
             dog.style.left = '100px'; // 回到菁女王的身边
+            message.style.display = 'block'; // 显示道歉文字
+
+            // 在2秒后隐藏道歉文字
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
         });
     </script>
 
