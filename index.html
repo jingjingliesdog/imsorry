@@ -43,7 +43,7 @@
             font-size: 18px;
             border: 2px solid black;
             position: absolute;
-            left: 150px; /* 初始位置离女王有150px的距离 */
+            left: 600px; /* 初始位置是滚开的状态 */
             transition: transform 1s ease, left 1s ease;
         }
         button {
@@ -83,10 +83,10 @@
             dog.style.left = '600px'; // 狗滚到离女王更远的位置
         });
 
-        // 点击 "滚回来" 按钮后，丁狗滚回到原始位置
+        // 点击 "滚回来" 按钮后，丁狗滚回到女王身边
         comeBackButton.addEventListener('click', () => {
             dog.style.transform = 'rotate(0deg)'; // 旋转角度复位
-            dog.style.left = '150px'; // 回到初始位置
+            dog.style.left = '100px'; // 回到菁女王的身边
         });
     </script>
 
